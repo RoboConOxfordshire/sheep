@@ -24,35 +24,33 @@ import robot
 R = robot.Robot()
 
 # If you're not using GPIO pin 1, change this number to whatever pin you're using.
-R.gpio[0].mode = robot.OUTPUT
-R.gpio[0].digital = True
+R.gpio[1].mode = robot.OUTPUT
+R.gpio[1].digital = True
 ```
 
 Try using a loop to make the light turn on and off every 2 seconds. You'll need the time library from the motors exercise.
 
 ## Buttons
 
-While your robot hopefully won't be colliding with much, buttons are a good way for a robot to know if it's driven into something. Buttons should be plugged into the - pin and a regular pin (such as 0). Using the `INPUT_PULLUP` mode, you can detect when a button is pressed.
+While your robot hopefully won't be colliding with much, buttons are a good way for a robot to know if it's driven into something. Buttons should be plugged into the - pin and a regular pin (such as 1). Using the `INPUT_PULLUP` mode, you can detect when a button is pressed.
 
 ```python
 import robot
 import time
 R = robot.Robot()
 
-# If you're not using GPIO pin 0, change this number to whatever pin you're using.
-R.gpio[0].mode = robot.INPUT_PULLUP
+# If you're not using GPIO pin 1, change this number to whatever pin you're using.
+R.gpio[1].mode = robot.INPUT
 
 while True:
-    if not R.gpio[0].digital:
+    if R.gpio[1].digital:
         print("Pressed")
     else:
         print("Not Pressed")
     time.sleep(0.1)
 ```
 
-Note that `INPUT_PULLUP` returns inverted values - `True` when it isn't pressed and `False` when it is. This means we use `not` to invert the output we get back to something more sensible for our use.
-
-Try making a light turn on or off depending on if a button is pressed. An explanation of why it is needed to use `INPUT_PULLUP` can be found in the [GPIO documentation](/gpio.html#pull-ups).
+Try making a light turn on or off depending on if a button is pressed. An explaination of why it is needed to use `INPUT_PULLUP` can be found in the [GPIO documentation](/gpio.html#pull-ups).
 
 ## Potentiometers
 
@@ -70,6 +68,7 @@ R.gpio[POT_PIN].mode = robot.INPUT_ANALOG
 while True:
     print(R.gpio[POT_PIN].analog)
 ```
+
 
 ## Using sensors with retroreflective tape
 

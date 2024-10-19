@@ -5,15 +5,13 @@ position: 2
 ---
 # The BrainBox
 
-The BrainBox is the core of the kit which we provide. In it is all of the electronics and software you need to power a robot. Lets start by turning it on. Take a battery from the kit and plug it into the yellow socket labelled battery, then take a red "power button" and connect that to the black connector along the side of the BrainBox. The battery and start button are both labelled on the red surface of the BrainBox. 
-![The brain box](/images/angled.png)
-## How to turn everything on
-Pressing the start button will cause the battery status LEDs on the front of the BrainBox flash in an upwards direction and the power LED turns green. When the user light starts flashing blue your BrainBox is ready to run code. You can now turn connect to your robot. The user LED will go solid while code is running. 
+The BrainBox is the center of the kit, it controls power, provides you with useful electronics and is where your code runs. Do **NOT** open the BrainBox unless given written permission by RoboCon Oxfordshire.
+
 ## Power
 
 The BrainBox distributes power to the robot from the battery. It provides both 12V and 5V power out. All power must go through the BrainBox and the fuse should never be replaced.
 
-The On/Off switch also plugs into the BrainBox as well as the Start button which is used to start your robot code running.
+The On|Off switch also plugs into the BrainBox as well as the Start button which is used to start your robot code running.
 
 ## Motors & 12V Power
 
@@ -28,9 +26,6 @@ The specifications for the motor board can be found [here](/docs/CytronBoardDocs
 :::tip
 You can toggle the 12V which allows you to turn 12V devices on and off easily. However, this will also cut power to the motor board.
 :::
-
-## How to turn everything off
-When you are done for the day, press the power button, the user LED will flash rapidly, when this turns off you may unplug the battery. 
 
 ## USB's
 On the new brainBox, there is only one USB port. If you want to use something that requires a USB port such as a USB camera, you will need to get your own USB hub.  
@@ -71,21 +66,3 @@ The PWM pins ranges:
 | 178   | 2.39ms |
 | \-178 | 0.61ms |
 
-## Pin Out
-
-### IO
-
-![USB's](/images/powerconnector.png)
-
-### Motors
-
-![Motors](/images/brainboxmotors.png)
-
-
-### Front
-
-![Front](/images/redpanel.png)
-
-## Expansion I2C, UART & USB
-
-For expansion please see the [expansion page](/expanding-functionality.md).
