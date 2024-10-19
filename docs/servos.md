@@ -9,7 +9,7 @@ Servos are a bit like motors, except their position is fixed. This is useful for
 
 Similarly to motors, the position of a servo is expressed as a percentage. This can be negative.
 
-Servos are plugged into the **PWM** ports on the BrainBox. **PWM 1** represents **servo 1**, **PWM 2** is **servo 2**, etc.
+Servos are plugged into the **PWM** ports on the BrainBox. **PWM 0** represents **servo 0**, **PWM 1** is **servo 1**, etc.
 
 ## Python
 
@@ -19,7 +19,7 @@ You can control servos using the `servos` property of the `Robot` object. To set
 R.servos[1] = 50
 ```
 
-To control the fourth servo instead, replace `servos[1]` with `servos[4]`.
+To control the fourth servo instead, replace `servos[1]` with `servos[3]`.
 
 Here's a more complete example:
 

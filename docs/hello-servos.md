@@ -23,3 +23,4 @@ while True:
     R.servos[1] = 50
     time.sleep(2)
 ```
+

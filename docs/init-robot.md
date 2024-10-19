@@ -16,3 +16,4 @@ R = robot.Robot()
 ```
 
 When you initialise the robot with `robot.Robot()`, your code will be paused until the hardware start button or Shepherd run button is pressed. When the Robot is waiting for either of these buttons to be pressed, the blue status LED will flash on and off.
+

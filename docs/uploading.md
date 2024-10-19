@@ -58,3 +58,4 @@ Before you run your robot, make sure it's on the floor and NOT on a table!
 When you're ready, press the big **Start** button.
 
 You'll now be able to see what the robot sees and the output of your program below.
+

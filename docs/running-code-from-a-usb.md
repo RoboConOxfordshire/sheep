@@ -8,7 +8,7 @@ position: 4
 ![USB Stick](./images/usbstick.jpg)
 
 :::tip
-The brain only checks for the presence of USB sticks at boot, only plug and unplug USB sticks when the brain is off (front panel blue light off).
+The BrainBox only checks for the presence of USB sticks at boot, only plug and unplug USB sticks when the BrainBox is off (front panel blue light off).
 :::
 
 :::warning
@@ -26,7 +26,7 @@ When started, using the start button the robot will default to running the last 
 
 :::warning
 
-* During the competition **RoboCon** requires unrestricted access to at least one USB port, if you want to use a USB stick during the competition it must leave enough space around at least one port to insert our low profile USB stick.
+* During the competition **RoboCon Oxfordshire** requires unrestricted access to at least one USB port, if you want to use a USB stick during the competition you must use a USB splitter to allow us access to one port.
 * Code copied from USB sticks is not [Linted](https://en.wikipedia.org/wiki/Lint_%28software%29), sufficiently broken code may crash not just the user code, but also the web interface preventing the robot from reaching "Blinky". See [troubleshooting](/troubleshooting.html#troubleshooting) for details about what the LEDs mean. It is highly recommended for users to export working code from the editor to the USB stick rather than editing code directly. See [troubleshooting](/troubleshooting.html#the-brainbox-appears-to-power-up-but-i-can-t-connect-to-the-website-and-the-blue-led-lights-but-never-starts-flashing) for how to recover a robot which does not boot to Blinky.
 
 :::
@@ -72,7 +72,7 @@ IOError: \[Errno 121] Remote I/O error
 
  These can safely be ignored unless you also see them on the web interface.
 
-# Collecting iamges and raw analysis
+# Collecting images and raw analysis
 
 Every time the robot takes a picture it is updated on the web interface, during development it is occasionally useful to be able to also keep a log of pictures that have been analysed to check camera focus, motion blur etc.
 
@@ -91,5 +91,5 @@ When the robot boots, it loads a default image which is displayed until the robo
 4. The image will be used from the next time the robot is booted
 
 :::tip
-We may ask that your image includes either a Team Name or your institution (e.g. Systemetric or Hills Road Sixth Form College) to assist the Marshalls, but if you have a iconic robot design then we may waive this rule
+We may ask that your image includes either a Team Name or your institution (e.g. Systemetric or Abingdon School) to assist the Marshalls, but if you have a iconic robot design then we may waive this rule
 :::
