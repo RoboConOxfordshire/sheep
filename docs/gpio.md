@@ -5,7 +5,7 @@ position: 5
 ---
 # GPIO
 
-The GPIO (General Purpose Input Output) allows you to turn on LEDs, react to button presses, or do just about anything.
+The GPIO _(General Purpose Input Output)_ allows you to turn on LEDs, react to button presses, or do just about anything.
 
 Our BrainBox has 4 GPIO pins that you can control. Before you do anything with a pin, you must first set its mode.
 
@@ -15,7 +15,7 @@ There are 4 modes:
 |Digital Output|`robot.OUTPUT`|Allows you to write a high or low signal|
 |Digital Input|`robot.INPUT`|Allows you to read a high or low signal|
 |Analog Input|`robot.INPUT_ANALOG`|Allows you to read a voltage, like a voltmeter|
-|Pullup Input|`robot.INPUT_PULLUP`|Like input, but uses a [weak pullup resistor](/gpio.html#pull-ups)|
+|Pullup Input|`robot.INPUT_PULLUP`|Like analog, but uses a [weak pullup resistor](/gpio.html#pull-ups)|
 
 :::tip
 The GPIO are numbered 0-3
@@ -23,31 +23,25 @@ The GPIO are numbered 0-3
 
 ## Python
 
-To write a digital signal on pin 0:
+To write a digital signal on pin 1:
 
 ```python
-R.gpio[0].mode = robot.OUTPUT
-R.gpio[0].digital = True
+R.gpio[1].mode = robot.OUTPUT
+R.gpio[1].digital = True
 ```
 
-To read a digital signal on pin 1:
+To read a digital signal on pin 2:
 
 ```python
-R.gpio[1].mode = robot.INPUT
-print(R.gpio[1].digital)
+R.gpio[2].mode = robot.INPUT
+print(R.gpio[2].digital)
 ```
 
-To read an analog signal on pin 2:
+To read an analog signal on pin 3:
 
 ```python
-R.gpio[2].mode = robot.INPUT_ANALOG
-print(R.gpio[2].analog)
-```
-
-To read a pullup signal on pin 3
-```python
-R.gpio[3].mode = robot.INPUT_PULLUP
-print(R.gpio[3].digital) # Note that this output will be inverted - True when the connnection is open, and False when closed.
+R.gpio[3].mode = robot.INPUT_ANALOG
+print(R.gpio[3].analog)
 ```
 
 :::tip
@@ -87,7 +81,7 @@ while True:
 
 ## Blockly
 
-The GPIO blocks can be found in the **GPIO** section, and function similarly to the python.
+The GPIO blocks can be found in the **GPIO** section.
 
 ## Pull-ups
 
@@ -99,5 +93,5 @@ Many pieces of off-the-shelf electronics that have some form of standard I/O out
 
 However, the built-in pull-up resistor alleviates this need. It essentially wires in a resistor connected to 5V, meaning that when this option is enabled, an input pin will “default” to being high. This means you can simply connect a switch between the input pin and a ground pin without any need of resistors - when the switch is open, the pin will read high; when closed, it will read low.
 
-![An example weak pull up](/images/capture.png)
+![An example weak pull up](./images/capture.png)
 
