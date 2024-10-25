@@ -5,12 +5,4 @@ position: 2
 ---
 # Rules
 
-You can download the official rules for 2024 [here](/docs/rulebook.pdf).
-
-:::tip
-
-If you are viewing this page on your BrainBox then please check the website for the latest revision.
-
-:::
-
-![Game logo](./images/roboconHeader.png)
+You will have been provided with the official rules for 2025 at the launch event. If you need a new copy, please email peter.willis@abingdon.org.uk
