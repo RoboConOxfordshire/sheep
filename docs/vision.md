@@ -138,14 +138,12 @@ A `Marker` object contains information about a _detected_ marker. It has the fol
 | `rotation.z`                | The **yaw** of the marker                                                                                                                                                                                                                            |
 | `info`                      | An object with various information about the marker                                                                                                                                                                                                  |
 | `info.id`                   | The ID number of the marker                                                                                                                                                                                                                          |
-| `info.type`                 | The type of marker, one of MARKER_TYPE                                                                                                                                                                                                               |
 | `info.size`                 | The length of the black edge of the marker in meters                                                                                                                                                                                                 |
-| `info.type`                 | The type of marker, a `MARKER_TYPE`                                                                                                                                                                                                                  |
+| `info.type`                 | The type of marker, a `MARKER_TYPE`. Either BOX, ARENA, or LAIR.                                                                                                                                                                                                                   |
 | `info.owning_team`          | Which team owns the marker. For sheep this will be set to Arena                                                                                                                                                                              |
 | `info.bounding_box_colour`  | A tuple describing the colour which is drawn around the marker in the preview image (Blue, Red, Green)                                                                                                                                               |
 | `detection`                 | Technical information which has been inferred from the image.                                                                                                                                                                                        |
-| `detection.tag_family`      | The family of AprilTag which is detected. RoboCon currently only uses `tag36h11`.                                                                                                                                                                    |
-| `detection.tag_id`          | The ID number of the detected marker. Aliased by `marker.code`.                                                                                                                                                                                      |
+| `detection.tag_family`      | The family of AprilTag which is detected. RoboCon currently only uses `tag36h11`.                                                                                                                                                                    |                                                                                                                                                                                    |
 | `detection.hamming`         | The number of bits which were corrected. The detector cannon detect tags with a hamming distance greater than 2.                                                                                                                                     |
 | `detection.decision_margin` | A measure of the quality of the binary decoding process; the average difference between the intensity of a data bit versus the decision threshold. Higher numbers roughly indicate better decodes. Only effective for tags which appear small.       |
 | `detection.homography`      | The 3x3 homography matrix describing the projection from an "ideal" tag (with corners at (-1,1), (1,1), (1,-1), and (-1, -1)) to pixels in the image.                                                                                                |
@@ -164,22 +162,30 @@ no way to know how you've mounted your camera. You may need to account for this.
 :::
 
 :::tip
-You can import `MARKER_OWNER`, `MARKER_TYPE`, `WOOL_TYPE` and `TEAM` from `robot`,   for example...  
+You can import `MARKER_TYPE` and `TEAM` from `robot`,   for example...  
 
 ```python
 import robot
 
 R = robot.Robot()
 
-markers = R.see()
+while True:
+    markers = R.see()
 
-for marker in markers:
-    if marker.info.owner == robot.MARKER_OWNER.ARENA:
-        print(f"Marker {marker.info.id} is owned by the arena")
-    elif marker.info.owning_team == R.zone:
-        print(f"I own {marker.info.id}")
-    else:
-        print(f"Marker {marker.info.id} is owned by {marker.info.owning_team}")
+    for marker in markers:
+        if marker.info.owning_team == robot.TEAM.ARENA:
+            print(f"Marker {marker.info.id} is owned by the arena")
+        elif marker.info.owning_team == R.zone:
+            print(f"I own this marker")
+        else:
+            print(f"This marker is owned by {marker.info.owning_team}")
+
+        if marker.info.type == robot.MARKER_TYPE.LAIR:
+            print(f'This is a Lair belonging to {marker.info.owning_team}')
+        elif marker.info.type == robot.MARKER_TYPE.BOX:
+            print(f'This is a box belonging to {marker.info.owning_team}')
+        else:
+            print(f'This is an Arena marker')
 ```
 
 :::
