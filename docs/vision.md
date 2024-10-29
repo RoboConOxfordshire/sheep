@@ -77,7 +77,7 @@ Blocks for vision can be found in the **Vision** section.
 
 ## Example
 
-After reading the [motors documentation](docs/motors.html) you should be able to create a function which moves your robot by a number of meters as well as turn. We can then use this to write some code where a robot:
+After reading the [motors documentation](motors.html) you should be able to create a function which moves your robot by a number of meters as well as turn. We can then use this to write some code where a robot:
 
 - Looks for a marker
 - If it can see a marker:
