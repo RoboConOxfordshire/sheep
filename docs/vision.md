@@ -48,18 +48,26 @@ Full reference of the properties are further below but some useful properties ar
 
 Every april tag has a code:
 
-- April tags 0-39 will be used for cubes. Although each team only has 1 jacket potato to find they are assigned 2 codes. This is to allow us
-  to have spare potatoes incase some get damaged during play. Potatoes which aren't jacket potatoes will have their owning team as the arena.
+- April tags 0-49 will be used for cubes. Although each team only has one Gem
+  to find they are assigned 2 codes. This is to allow us
+  to have spare gems incase some get damaged during play. 
+  
+- Sheep do not belong to a team and will have their owning team as the arena. 
+  They will have codes 0 - 19 although technically any code less than 50 that is not a gem will be treated as a sheep.
 
 - April tags 100+ will around the arena on the walls. See the rules for
   specifics on where around the rules they will be placed
 
-| Code  | Team   |
-|-------|--------|
-| 0, 20 | Russet |
-| 1, 21 | Sweet  |
-| 2, 22 | Maris  |
-| 3, 23 | Purple |
+- April tags 50 - 53 are used to mark each team's lair.
+
+
+| Team      | Gem    | Lair |
+|-----------|--------|------|
+|  Ruby     | 20, 40 |  50  |
+|  Diamond  | 21, 41 |  51  |
+|  Jade     | 22, 42 |  52  |
+|  Topaz    | 23, 43 |  53  |
+
 
 ## Blockly
 
@@ -133,7 +141,7 @@ A `Marker` object contains information about a _detected_ marker. It has the fol
 | `info.type`                 | The type of marker, one of MARKER_TYPE                                                                                                                                                                                                               |
 | `info.size`                 | The length of the black edge of the marker in meters                                                                                                                                                                                                 |
 | `info.type`                 | The type of marker, a `MARKER_TYPE`                                                                                                                                                                                                                  |
-| `info.owning_team`          | Which team owns the marker, when a hot potato this will be set to Arena                                                                                                                                                                              |
+| `info.owning_team`          | Which team owns the marker. For sheep this will be set to Arena                                                                                                                                                                              |
 | `info.bounding_box_colour`  | A tuple describing the colour which is drawn around the marker in the preview image (Blue, Red, Green)                                                                                                                                               |
 | `detection`                 | Technical information which has been inferred from the image.                                                                                                                                                                                        |
 | `detection.tag_family`      | The family of AprilTag which is detected. RoboCon currently only uses `tag36h11`.                                                                                                                                                                    |
