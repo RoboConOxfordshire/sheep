@@ -418,7 +418,7 @@
         </block>
       </value>
     </block>
-    <block type="vision_marker_team_sheep"></block>
+    <block type="vision_marker_team_arena"></block>
     <block type="vision_marker_team_ruby"></block>
     <block type="vision_marker_team_diamond"></block>
     <block type="vision_marker_team_jade"></block>

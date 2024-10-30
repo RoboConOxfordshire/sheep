@@ -568,39 +568,39 @@ function loadMarkerBlocks(Blockly) {
   };
 
   Blockly.Python["vision_marker_type_arena"] = function() {
-    const code = "robot.MARKER_TYPE.ARENA";
+    const code = "MARKER_TYPE.ARENA";
     return [code, Blockly.Python.ORDER_NONE];
   };
 
   Blockly.Python["vision_marker_type_box"] = function() {
-    const code = "robot.MARKER_TYPE.BOX";
+    const code = "MARKER_TYPE.BOX";
     return [code, Blockly.Python.ORDER_NONE];
   };
 
   Blockly.Python["vision_marker_type_lair"] = function() {
-    const code = "robot.MARKER_TYPE.LAIR";
+    const code = "MARKER_TYPE.LAIR";
     return [code, Blockly.Python.ORDER_NONE];
   };
 
-  Blockly.Python["vision_marker_team_sheep"] = function() {
-    const code = "robot.TEAM.ARENA";
+  Blockly.Python["vision_marker_team_arena"] = function() {
+    const code = "TEAM.ARENA";
     return [code, Blockly.Python.ORDER_NONE];
   };
 
   Blockly.Python["vision_marker_team_ruby"] = function() {
-    const code = "robot.TEAM.RUBY";
+    const code = "TEAM.RUBY";
     return [code, Blockly.Python.ORDER_NONE];
   };
   Blockly.Python["vision_marker_team_diamond"] = function() {
-    const code = "robot.TEAM.DIAMOND";
+    const code = "TEAM.DIAMOND";
     return [code, Blockly.Python.ORDER_NONE];
   };
   Blockly.Python["vision_marker_team_jade"] = function() {
-    const code = "robot.TEAM.JADE";
+    const code = "TEAM.JADE";
     return [code, Blockly.Python.ORDER_NONE];
   };
   Blockly.Python["vision_marker_team_topaz"] = function() {
-    const code = "robot.TEAM.TOPAZ";
+    const code = "TEAM.TOPAZ";
     return [code, Blockly.Python.ORDER_NONE];
   };
 }
