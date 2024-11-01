@@ -488,7 +488,7 @@ function loadVisionBlocks(Blockly) {
 }
 
 function loadMarkerBlocks(Blockly) {
-  /* Year dependent marker blocks (2024) */
+  /* Year dependent marker blocks (2025) */
 
   Blockly.Blocks["vision_marker_type_arena"] = {
     init: function() {
@@ -520,7 +520,7 @@ function loadMarkerBlocks(Blockly) {
     }
   };
 
-  Blockly.Blocks["vision_marker_team_sheep"] = {
+  Blockly.Blocks["vision_marker_team_arena"] = {
     init: function() {
       this.appendDummyInput().appendField("Sheep");
       this.setOutput(true, "MarkerTeam");
