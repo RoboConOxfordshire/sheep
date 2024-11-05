@@ -5,7 +5,7 @@ position: 8
 ---
 # Zones
 
-Your code will probably need to look for different markers depending on the zone your robot starts in. Whilst you could have different files for each zone, there's also a property on the robot object for this.
+Your code will probably need to look for different markers depending on the zone your robot starts in.
 
 ## Python
 
@@ -13,10 +13,10 @@ Your code will probably need to look for different markers depending on the zone
 
 | **Team** | **Code** |
 |----------| --- |
-| RUSSET        | `robot.TEAM.RUSSET` |
-| SWEET    | `robot.TEAM.SWEET` |
-| MARIS_PIPER     | `robot.TEAM.MARIS_PIPER` |
-| PURPLE      | `robot.TEAM.PURPLE` |
+| Ruby        | `robot.TEAM.RUBY` |
+| Diamond    | `robot.TEAM.DIAMOND` |
+| Jade     | `robot.TEAM.JADE` |
+| Topaz      | `robot.TEAM.TOPAZ` |
 Here's an example:
 
 ```python
@@ -24,7 +24,7 @@ import robot
 
 R = robot.Robot()
 
-if R.zone == robot.TEAM.RUSSET:
+if R.zone == robot.TEAM.RUBY:
     print("Do something!")
 else:
     print("Do something else!")
