@@ -14,15 +14,6 @@
                     <p>Create a new Python project allowing you to implement complex behaviour.</p>
                 </div>
             </div>
-            <div class="row">
-                <!--suppress HtmlFormInputWithoutLabel -->
-                <input type="radio" v-model="type" value="blockly">
-                <i class="blockly" @click="type = 'blockly'"></i>
-                <div class="info" @click="type = 'blockly'">
-                    <h2>Blockly</h2>
-                    <p>Create a new Blockly project allowing you to use a simple drag and drop interface.</p>
-                </div>
-            </div>
         </div>
         <template slot="actions">
             <button @click="close">Cancel</button>
@@ -84,10 +75,6 @@ export default Vue.extend({
 
       &.python {
         background-image: url("../../assets/python.svg");
-      }
-
-      &.blockly {
-        background-image: url("../../assets/blocks.svg");
       }
     }
 
