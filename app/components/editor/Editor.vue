@@ -3,7 +3,6 @@
         <Tabs/>
         <div id="editor-container" :class="sidebarsHidden">
             <Monaco/>
-            <Blockly/>
             <!--<BlockDefinitions/>-->
         </div>
     </div>

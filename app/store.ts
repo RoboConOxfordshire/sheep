@@ -4,7 +4,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import JSZip from "jszip";
-import { BlocksConfiguration } from "./components/editor/blockly/block-loader";
 import FileSaver from "file-saver";
 import Ajv from "ajv";
 import blocksSchema from "./components/editor/monaco/json/schema.json";
@@ -35,7 +34,6 @@ export interface Project {
   name: string;
   content: string;
   lastSaveContent?: string;
-  blocklyGenerated?: string;
 }
 
 /**This is for the projects retreived from the server initally to display the
@@ -48,7 +46,6 @@ export interface Project {
 interface ProjectsResponse {
   main: string;
   projects: Project[];
-  blocks: BlocksConfiguration;
 }
 
 /** Notifications can be raised to the user. Here is the interface for all of
@@ -71,7 +68,6 @@ interface State {
   loaded: boolean;
   main: string;
   projects: Project[];
-  blocksConfiguration?: BlocksConfiguration;
   openProjects: Project[];
   currentProject?: Project;
   running: boolean;
@@ -177,7 +173,6 @@ export default new Vuex.Store<State>({
     main: "",
     projects: [],
     openProjects: [],
-    blocksConfiguration: undefined,
     currentProject: undefined,
     running: false,
     saving: 0,
@@ -206,7 +201,6 @@ export default new Vuex.Store<State>({
           test.filename !== "blocks.json"
       );
       state.projects.sort(compareProjects);
-      state.blocksConfiguration = res.blocks;
     },
 
     /**Checks if a project is already open.
@@ -257,21 +251,18 @@ export default new Vuex.Store<State>({
       state: State,
       {
         content,
-        blocklyGenerated,
         filename
-      }: { content: string; blocklyGenerated?: string; filename?: string }
+      }: { content: string; filename?: string }
     ) {
       if (filename) {
         state.projects = state.projects.map(v => {
           if (v.filename === filename) {
             v.content = content;
-            v.blocklyGenerated = blocklyGenerated;
           }
           return v;
         });
       } else if (state.currentProject) {
         state.currentProject.content = content;
-        state.currentProject.blocklyGenerated = blocklyGenerated;
       }
     },
 
@@ -621,34 +612,14 @@ export default new Vuex.Store<State>({
         const zip = new JSZip();
 
         let filesToPack: Project[] = [];
-        if (state.currentProject.filename.endsWith(".xml")) {
-          const blocksConfiguration: BlocksConfiguration = state.blocksConfiguration || {
-            header: "",
-            footer: "",
-            requires: [],
-            blocks: []
-          };
+        
+        zip.file("main.py", state.currentProject.content);
 
-          /*const generated = `${blocksConfiguration.header}\n${
-            state.currentProject.blocklyGenerated
-          }\n${blocksConfiguration.footer}`;*/
-          const generated = state.currentProject.blocklyGenerated;
-
-          zip.file("main.py", generated || "");
-
-          filesToPack = state.projects.filter(
-            project =>
-              project.filename.endsWith(".py") &&
-              blocksConfiguration.requires.includes(project.filename)
-          );
-        } else {
-          zip.file("main.py", state.currentProject.content);
-
-          filesToPack = state.projects.filter(
-            project =>
-              project.filename.endsWith(".py") && project.filename != filename
-          );
-        }
+        filesToPack = state.projects.filter(
+          project =>
+            project.filename.endsWith(".py") && project.filename != filename
+        );
+        
 
         for (let i = 0; i < filesToPack.length; i++) {
           zip.file(filesToPack[i].filename, filesToPack[i].content);
